@@ -80,8 +80,6 @@ The PR with correct and optimised solution, which satisfies the deadline criteri
 
 > Let's build a strong community of kind developers! 👭👫👬
 
-To know more about the program and it's guidelines do check [README.md](README.md) file.
-
 
 That's it! Thank you for your contribution! 😃
 
