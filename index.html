@@ -8,12 +8,70 @@
     <title>Find Git User</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        .btnSearch {
+            border-radius: 60px;
+            outline: none;
+            padding: 3px, 0px, 3px, 0px;
+            width: 8rem;
+        }
+        
+        .inputSearch {
+            border-radius: 60px;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container rounded border border-dark overflow-hidden">
+        <div class="row  mt-2 mx-auto" id="mainpart">
+            <div class="col-12 mx-auto border border-dark shadow rounded  ">
+                <div class="mt-4 d-flex justify-content-around   ">
+                    <p>
+                        Find details of a git user
+                    </p>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
+                    </div>
+                </div>
+                <div class="row  d-flex justify-content-around ">
+                    <div class="col-4 w-50  ms-5 mb-3 ">
+                        <input type="text" class="form-control inputSearch" placeholder="Enter Username" aria-label="First name">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success btnSearch">Search</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 mx-auto  ">
+            <div class="col mx-auto border border-dark shadow rounded d-flex justify-content-between ">
+                <div class="imageUser my-2 mx-2">
+                    <img src="https://avatars.githubusercontent.com/u/52687597?v=4" style="width: 220px;height:fit-content;" alt="">
+                </div>
+
+                <div class="details flex-fills my-2 mx-2 mw-50">
+                    <p>Name:Veeresh Maurya</p>
+                    <p>Blog:https://veeresh-rex.github.io/Veeresh-Rex/</p>
+                    <p>Location:India</p>
+                    <p>Email:mauryaveeresh@gmail.com</p>
+                    <p>Bio: bhebhwjnhbqwj fweh f bdqhhhhhhqdndew he fwejhfebw f wehjf wefhwhe wbef wefuwefj wehf</p>
+                </div>
+                <div class="detail2 flex-fill  my-2 mx-2">
+
+                    <p>twitter username: @maurya_veeresh</p>
+                    <p>Public repo:27</p>
+                    <p>Public Gist:1</p>
+                    <p>Followers:5</p>
+                    <p>Following:12</p>
+                </div>
 
 
-    <div class="container">
+            </div>
+
+        </div>
 
     </div>
 
