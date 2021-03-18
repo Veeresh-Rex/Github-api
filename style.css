@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&family=Syne+Mono&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +9,7 @@
 body {
     font-family: 'Inconsolata', monospace;
 }
+
 
 /* .btnSearch {
     border-radius: 14px;
@@ -40,11 +39,20 @@ input[type=text]:focus {
 #name {
     font-family: 'Roboto', sans-serif;
 }
-.fa-envelope, .fa-map-marker-alt, .fa-address-card, .fa-link{
+
+.fa-envelope,
+.fa-map-marker-alt,
+.fa-address-card,
+.fa-link {
     color: rgb(67, 67, 70);
     font-size: large;
 }
+
 .btn-outline-primary {
     border-radius: 20px;
     height: 35px;
+}
+
+.shadowCss {
+    box-shadow: 0 4px 25px rgba(14, 36, 49, .15);
 }
