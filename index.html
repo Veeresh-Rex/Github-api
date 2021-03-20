@@ -20,102 +20,48 @@
         <div class="row  mt-2 mx-auto" id="mainpart">
             <div class="col-12 mx-auto border border-dark border-3 shadow rounded  ">
 
-                <div class="row  d-flex">
-                    <div class="col-10">
-                        <h2 class="d-flex justify-content-center font-weight-bold">
-                            Find details of a git user
+                <div class="row ">
+                    <div class="col-10 d-flex flex-column  justify-content-around font-weight-bold mt-2">
+                        <h2>
+                            <p class="ms-5"> Find details of a Github user</p>
                         </h2>
-                        <div class="d-flex justify-content-center font-weight-bold">
-                            <div class="col-4 w-75  ms-5 mb-3 d-flex justify-content-center">
+                        <form>
+                            <div class="col-4 w-75  mb-3 d-flex justify-content-center">
                                 <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
-                                <button type="button" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark">Search</button>
+                                <button type="submit" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark shadow-none">Search</button>
                             </div>
 
-                        </div>
-                        <!-- <div class="col-4 w-75  ms-5 mb-3 d-flex justify-content-center">
-                            <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
-                            <button type="button" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark">Search</button>
-                        </div> -->
-                        <!-- <div class="col">
-                            <button type="button" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark">Search</button>
-                        </div> -->
+                        </form>
+
                     </div>
-                    <div class="col-2 form-check form-switch ">
-                        <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
-                    </div>
-
-                    <!-- <div class="col-4">
-                        col-4
-                    </div> -->
-                </div>
-
-
-                <!-- <div class="mt-4 d-flex justify-content-around   ">
-                    <h2>
-                        Find details of a git user
-                    </h2>
-                    <div class="form-check form-switch">
+                    <div class="col-2 form-check form-switch mt-2">
                         <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked" checked>
                         <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-around ">
-                    <div class="col-4 w-50  ms-5 mb-3 ">
-                        <input type="search" class="form-control inputSearch shadow-none " id="usernameInp" placeholder="Enter Username" aria-label="First name">
-                    </div>
-                    <div class="col">
-                        <button type="button" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark">Search</button>
-                    </div>
-
-                </div> -->
             </div>
         </div>
-        <!-- Seection Header Ends -->
+        <!-- Seection 1 Header Ends -->
         <!-- User Details Start -->
         <div class="row mt-2 mx-auto  ">
-            <div class="col mx-auto border border-dark border-3 shadow rounded d-flex justify-content-between ">
-                <!-- <div class="imageUser my-2 mx-1 border border-primary">
-                    <img src="https://avatars.githubusercontent.com/u/52687597?v=4" style="width: 220px;height: 250px;" alt="">
-                    <button type="button" class="btn btn-outline-primary justify-content-center">Follow</button>
-                </div> -->
-                <div class="card border-secondary my-2 mx-1 mb-1 w-50 mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;">
-                    <div class="card-body text-success">
-                        <img src="https://avatars.githubusercontent.com/u/52687597?v=4" style="width: 220px;height: 250px;" alt="">
-                    </div>
-                    <div class="card-footer bg-transparent border-secondary"><button type="button" class="btn btn-outline-primary justify-content-center">Follow</button></div>
-                </div>
-
-                <div class="details flex-fills mw-25 card border-secondary w-50 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded">
-                    <h2 id="name">Veeresh Maurya</h2>
-                    <p> &nbsp@veeresh-rex</p>
-                    <p><i class="fas fa-link"></i>&nbsphttps://veeresh-rex.github.io/Veeresh-Rex/</p>
-                    <p><i class="fas fa-map-marker-alt"></i>&nbspIndia</p>
-                    <a href="mailto:mauryaveeresh@gmail.com"><i
-                                class="far fa-envelope"></i>&nbspmauryaveeresh@gmail.com</a>
-
-                    <p><i class="fab fa-twitter"></i>&nbsp@maurya_veeresh</p>
-                    <p>Type: User</p>
-                    <p><i class="fas fa-address-card"></i> bhebhwjnhbqwj fweh f bdqhhhhhhqdndew he fwejhfebw f wehjf wefhwhe wbef wefuwefj wehf</p>
-                </div>
-                <div class="card border-secondary w-25 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <p data-bs-toggle="collapse" href="#listrepo" aria-expanded="false" aria-controls="collapseExample" style="cursor: pointer;">Public repo:27</p>
-                        <p>Public Gist:1</p>
-                        <p>Followers:5</p>
-                        <p>Following:12</p>
-                        <p>Account Created on: </p>
-                        <p>Star Projects:</p>
-                    </div>
-                </div>
+            <div class="col mx-auto border border-dark border-3 shadow rounded d-flex justify-content-between userdatahtml">
+                <ul class="datacard mt-2">
+                    <li>This is a simple website to get all details about any github user.</li>
+                    <li>This website simply use github api, to get all details about any user.</li>
+                    <li>The email-id of user is not provided by github api. So the email-id is shown in the data may or may not correct. </li>
+                    <li>It is open source. Please check it out
+                        <a href="https://github.com/Veeresh-Rex/Github-api.git" target="_blank">Github Link</a>
+                    </li>
+                    <li>Created by <a href="https://github.com/Veeresh-Rex">@Veeresh Rex</a></li>
+                </ul>
 
             </div>
 
         </div>
         <!-- User Details End -->
         <!-- Public Repo -->
-        <div class="row mt-2 shadow mx-auto" id='listrepo'>
-            <div class="col border border-dark border-3 shadow rounded d-flex flex-column">
+        <div class="row mt-2 shadow mx-auto mb-2" id='listrepo'>
+            <div class="col border border-dark border-3 shadow rounded d-flex flex-column ">
                 <div class="repo fs-3 fw-bold d-flex justify-content-center" id="pubrepo">
                     <p> List of Repository</p>
                 </div>
@@ -123,13 +69,13 @@
                     <div class="col-4 w-50  ms-5 mb-3 ">
                         <input type="text" class="form-control inputSearch shadow-none " id="usernameInp" placeholder="Search Repository" aria-label="First name">
                     </div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow-sm p-3 mb-5 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded">1. This is a public repo</div>
                 </div>
 
             </div>
