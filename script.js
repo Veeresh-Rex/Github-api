@@ -114,7 +114,7 @@ function showRepoList(repolist) {
     });
     let i = userData.public_repos > 100 ? 100 : userData.public_repos;
     for (var rep in repolist) {
-        htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded listofrepo">${i}. ${repolist[rep].name}</div>`;
+        htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 hvr-float bg-white rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
         listreposi.insertAdjacentHTML('afterbegin', htmlTaglist);
         i--;
     }
@@ -142,7 +142,7 @@ getFollowerlist.addEventListener('show.bs.modal', function(event) {
 
             response.forEach((ele) => {
                 console.log(ele);
-                let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 bg-white rounded followerlist">${ele.login} </div>`;
+                let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 bg-white rounded followerlist card-list hvr-float">${ele.login} </div>`;
                 modalBody.insertAdjacentHTML('afterbegin', htmlData);
             });
             modalBody.querySelectorAll('.followerlist').forEach((list) => {
