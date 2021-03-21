@@ -86,7 +86,7 @@ var formsub = function() {
         <p class="pubrepo" data-bs-toggle="collapse" href="#listrepo" aria-expanded="true"  role="button" aria-controls="listrepo" style="cursor: pointer;">Public repo:${userData.public_repos}</p>
         <p>Public Gist:${userData.public_gists}</p>
         <p data-bs-toggle="modal" data-bs-target="#followermodel" style="cursor: pointer;" >Followers:${userData.followers}</p>
-        <p>Following:${userData.following}</p>
+        <p data-bs-toggle="modal" data-bs-target="#followingmodel" style="cursor: pointer;">Following:${userData.following}</p>
         <p>Joined On:${joinDate} </p>
         <p>Star Projects:4</p>
     </div>
@@ -150,9 +150,45 @@ getFollowerlist.addEventListener('show.bs.modal', function(event) {
                     //  console.log('click on list:' + list.textContent);
                     input.value = list.textContent;
                     formsub();
-                    //  getFollowerlist.classList.remove('show');
-                    // getFollowerlist.setAttribute('style', 'display: none');
                     getFollowerlist.querySelector('.modalclose').click();
+                });
+            });
+        })
+        .catch((err) => {
+            console.log('Error while fetching follwers list: ' + err);
+        });
+});
+var getFollowing = document.querySelector('#followingmodel');
+getFollowing.addEventListener('show.bs.modal', () => {
+    const modalBody = getFollowing.querySelector('.modal-body');
+    //console.log(modalBody);
+    let loader = `  <div class="spinner w-100 h-100 mt-5 mb-5 d-flex justify-content-center ">
+    <span class="loader"></span>
+</div>`;
+    modalBody.insertAdjacentHTML('beforeend', loader);
+    console.log('model open h');
+    let url = `https://api.github.com/users/${userData.login}/following?per_page=100`;
+    modalBody.querySelectorAll('.followerlist').forEach((element) => {
+        element.remove();
+    });
+    fetch(url)
+        .then((res) => res.json())
+        .then((response) => {
+            const spinnerr = modalBody.querySelector('.spinner');
+            spinnerr.remove();
+            //  console.log(response);
+
+            response.forEach((ele) => {
+                console.log(ele);
+                let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 bg-white rounded followerlist card-list hvr-float">${ele.login} </div>`;
+                modalBody.insertAdjacentHTML('afterbegin', htmlData);
+            });
+            modalBody.querySelectorAll('.followerlist').forEach((list) => {
+                list.addEventListener('click', () => {
+                    //  console.log('click on list:' + list.textContent);
+                    input.value = list.textContent;
+                    formsub();
+                    getFollowing.querySelector('.modalclose').click();
                 });
             });
         })
