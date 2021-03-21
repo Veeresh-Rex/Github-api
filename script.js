@@ -56,7 +56,7 @@ var formsub = function() {
                 useremail = ress;
             });
             let joinDate = userData.created_at.substring(0, 10);
-            console.log('value: ' + inputValueis);
+            //  console.log('value: ' + inputValueis);
             fetch(`https://api.github.com/users/${inputValueis}/repos?per_page=100`)
                 .then((respo) => respo.json())
                 .then(async(userPublicrepo) => {
@@ -147,10 +147,12 @@ getFollowerlist.addEventListener('show.bs.modal', function(event) {
             });
             modalBody.querySelectorAll('.followerlist').forEach((list) => {
                 list.addEventListener('click', () => {
-                    console.log('click on list:' + list.textContent);
+                    //  console.log('click on list:' + list.textContent);
                     input.value = list.textContent;
                     formsub();
-                    getFollowerlist.setAttribute('aria-hidden', 'true');
+                    //  getFollowerlist.classList.remove('show');
+                    // getFollowerlist.setAttribute('style', 'display: none');
+                    getFollowerlist.querySelector('.modalclose').click();
                 });
             });
         })
