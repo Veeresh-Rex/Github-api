@@ -120,6 +120,37 @@ function showRepoList(repolist) {
     }
 }
 
+
+function searchRepo(){
+    // Declare variables
+    // console.log("input chnages");
+  var input, filter, a, i;
+  input = document.getElementById('reponameInp');
+  filter = input.value.toUpperCase();
+  console.log(filter);
+  list = document.getElementsByClassName("listofrepo");
+//   console.log(list[0].textContent[0]);
+    // const repo = [];
+    // for(i=0;i<list.length;i++){
+    //     repo[i] = list[i].textContent;
+    // }
+//   repo = list[0].textContent;
+//   console.log(repo);
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < list.length; i++) {
+    a = list[i].textContent[0];
+    // console.log(a.textContent);
+    // console.log(a);
+    // txtValue = a.textContent || a.innerText;
+    if (a.toUpperCase().indexOf(filter) > -1) {
+      list[i].style.display = "";
+    } else {
+      list[i].style.display = "none";
+    }
+  }
+}
+
 var getFollowerlist = document.getElementById('followermodel');
 getFollowerlist.addEventListener('show.bs.modal', function(event) {
     const modalBody = getFollowerlist.querySelector('.modal-body');
