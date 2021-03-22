@@ -51,6 +51,8 @@ async function getStatProjects() {
     return stardatano;
 }
 var formsub = function() {
+        listgist.classList.remove('show');
+        listreposi.classList.remove('show');
         let loader = `  <div class="spinner w-100 h-100 mt-5 mb-5 d-flex justify-content-center ">
 <span class="loader"></span>
 </div>`;
@@ -101,11 +103,31 @@ var formsub = function() {
 <div class="datacard card-list details flex-fills mw-25 card  w-50 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded">
     <h2 id="name">${userData.name}</h2>
     <p> &nbsp@${userData.login}</p>
-    <p><i class="fas fa-link"></i>&nbsp${userData.blog}</p>
-    <p><i class="fas fa-map-marker-alt"></i>&nbsp${userData.location}</p>
-    <a href="mailto:${useremail}"><i class="far fa-envelope"></i> ${useremail}</a>
-    <p><i class="fab fa-twitter"></i>&nbsp@${userData.twitter_username}</p>
-    <p><i class="fas fa-address-card"></i> ${userData.bio}</p>
+
+${
+  userData.blog === ''
+    ? `<p class="text-danger" ><i class="fas fa-link"></i> Not availabe</p>`
+    : ` <p> <a href="${userData.blog}" target="_blank" class="alink"><i class="fas fa-link"></i> ${userData.blog}</a></p>`
+}
+
+   ${
+     userData.location === null
+       ? ` <p class="text-danger"><i class="fas fa-map-marker-alt"></i>&nbsp Not availabe</p>`
+       : ` <p><i class="fas fa-map-marker-alt"></i>&nbsp${userData.location}</p>`
+   }
+   ${
+     useremail === undefined
+       ? ` <p class="text-danger"> <i class="far fa-envelope"></i> Not avaliable</p>`
+       : ` <p> <a href="mailto:${useremail}" class="alink"><i class="far fa-envelope"></i> ${useremail}</a></p>`
+   }
+  
+    <p><i class="fab fa-twitter"></i> @${userData.twitter_username}</p>
+${
+  userData.bio == null
+    ? ` <p class="text-danger"><i class="fas fa-address-card"></i> Not avaliable</p>`
+    : ` <p><i class="fas fa-address-card"></i> ${userData.bio}</p>`
+}
+   
 </div>
 <div class="datacard card-list card  w-25 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;">
     <div class="card-body">
@@ -141,10 +163,19 @@ var formsub = function() {
 };
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  listgist.classList.remove('show');
-  listreposi.classList.remove('show');
+
   console.log(input.value);
   if (input.value !== undefined && allowsearch == true) formsub();
+});
+const repomodal = document.getElementById('repomodal');
+repomodal.addEventListener('show.bs.modal', () => {
+  console.log('Hide activated');
+  const modalbody = repomodal.querySelector('.modal-body');
+  console.log(modalbody);
+  modalbody.querySelectorAll('.repomodelbody').forEach((line) => {
+    console.log('delete  model' + line);
+    line.remove();
+  });
 });
 
 function showRepoList(repolist) {
@@ -161,43 +192,46 @@ function showRepoList(repolist) {
     i--;
   }
   listreposi.querySelectorAll('.listofrepo').forEach((ele) => {
-    // console.log(ele);
     ele.addEventListener('click', () => {
       let indexOfRepo = ele.getAttribute('value');
       let currentrepo = repolist[indexOfRepo];
-      console.log(currentrepo);
-      console.log('homepage : ' + currentrepo.homepage);
-      console.log('License: ' + currentrepo.license);
-      const repomodal = document.getElementById('repomodal');
       repomodal.querySelector('#repomodalLabel').textContent = currentrepo.name;
       const modalbody = repomodal.querySelector('.modal-body');
-      let htmlData = `<p>Id:${currentrepo.id}</p>
+      let createdDate = currentrepo.created_at.substring(0, 10);
+      let latestUpdate = currentrepo.updated_at.substring(0, 10);
+      let htmlData = ` <div class="repomodelbody">
+      <p>Id:${currentrepo.id}</p>
       <p>Owner : ${currentrepo.owner.login}</p>
       <p>URL:${currentrepo.html_url} </p>
-      <p>HomePage: ${
-        currentrepo.homepage === null
-          ? `Not availabe`
-          : `${currentrepo.homepage}`
-      }</p>
-      <p>Description: ${currentrepo.description}</p>
+     ${
+       currentrepo.homepage === null || currentrepo.homepage === ''
+         ? `<p class="text-danger">Homepage: Not availabe</p>`
+         : `<p>HomePage: ${currentrepo.homepage}</p>`
+     }
+    ${
+      currentrepo.description === null
+        ? `<p class="text-danger">Description: Not availabe</p>`
+        : `<p>Description: ${currentrepo.description}</p>`
+    }
       <p>Forked Repo: ${currentrepo.fork}</p>
       <p>Fork count :${currentrepo.forks_count}</p>
       <p>Fork : Show a list of fork User</p>
-      <p>Created on:</p>
-      <p>Updated at:</p>
-      <p>Languages:
+      <p>Created on:${createdDate}</p>
+      <p>Updated at:${latestUpdate}</p>
+      <p>Languages:${currentrepo.language}
       </p>
-      <p>Size:${currentrepo.size} kb</p>
+      <p>Size:${currentrepo.size}kb</p>
       <p>Open issue count:${currentrepo.open_issues_count}</p>
       <p>Stars:${currentrepo.stargazers_count}</p>
-      <p>License: ${
-        currentrepo.license === null
-          ? `Not availabe`
-          : `${currentrepo.license.key}`
-      }</p>
+       ${
+         currentrepo.license === null
+           ? `<p class="text-danger">License: Not availabe</p>`
+           : `<p>License: ${currentrepo.license.key}</p>`
+       }
       <p>List of Branches:</p>
-      <p>Contributer list</p>`;
-      modalbody.insertAdjacentHTML('afterend', htmlData);
+      <p>Contributer list</p>
+      </div>`;
+      modalbody.insertAdjacentHTML('beforeend', htmlData);
     });
   });
 }

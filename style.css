@@ -36,6 +36,12 @@ input[type=text]:focus {
     font-family: 'Roboto', sans-serif;
 }
 
+.alink {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
 .fa-envelope,
 .fa-map-marker-alt,
 .fa-address-card,
