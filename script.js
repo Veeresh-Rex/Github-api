@@ -34,6 +34,15 @@ async function getEmail(data) {
 }
 var userData;
 var inputValueis;
+
+async function getStatProjects() {
+    var stardatano;
+    let res = await fetch(`https://api.github.com/users/${inputValueis}/starred`);
+    let response = await res.json();
+    stardatano = response.length;
+    console.log(typeof stardatano);
+    return stardatano;
+}
 var formsub = function() {
     let loader = `  <div class="spinner w-100 h-100 mt-5 mb-5 d-flex justify-content-center ">
 <span class="loader"></span>
@@ -56,19 +65,26 @@ var formsub = function() {
                 useremail = ress;
             });
             let joinDate = userData.created_at.substring(0, 10);
+
             //  console.log('value: ' + inputValueis);
             fetch(`https://api.github.com/users/${inputValueis}/repos?per_page=100`)
                 .then((respo) => respo.json())
                 .then(async(userPublicrepo) => {
                     await showRepoList(userPublicrepo);
                 });
+            var getStarProject;
+            await getStatProjects().then((userstar) => {
+                console.log(1);
+                getStarProject = userstar;
+            });
+            console.log(2);
 
             let userDataHTMLV = `
 <div class="datacard card border-secondary my-2 mx-1 mb-1 w-50 mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;">
     <div class="card-body text-success">
         <img src="${userData.avatar_url}" style="width: 220px;height: 220px;" alt="userimg" class="rounded shadow">
     </div>
-    <div class="card-footer bg-transparent border-secondary"><button type="button" class="btn btn-outline-primary justify-content-center">Follow</button></div>
+    <div class="card-footer bg-transparent border-secondary"><span><a href="https://github.com/Veeresh-Rex"  class="btn btn-outline-primary shadow-none justify-content-center">Check github Profile</a></span></div>
 </div>
 
 <div class="datacard details flex-fills mw-25 card border-secondary w-50 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded">
@@ -88,7 +104,7 @@ var formsub = function() {
         <p data-bs-toggle="modal" data-bs-target="#followermodel" style="cursor: pointer;" >Followers:${userData.followers}</p>
         <p data-bs-toggle="modal" data-bs-target="#followingmodel" style="cursor: pointer;">Following:${userData.following}</p>
         <p>Joined On:${joinDate} </p>
-        <p>Star Projects:4</p>
+        <p>Star Projects:${getStarProject}</p>
     </div>
 </div>
 
