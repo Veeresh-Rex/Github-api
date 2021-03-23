@@ -186,7 +186,7 @@ function showRepoList(repolist) {
   });
   let i = userData.public_repos > 100 ? 100 : userData.public_repos;
   for (var rep in repolist) {
-    console.log(rep);
+    // console.log(rep);
     htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#repomodal" value="${rep}" class="shadowCss p-3 mb-3 hvr-float bg-white rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
     listreposi.insertAdjacentHTML('afterbegin', htmlTaglist);
     i--;
@@ -234,6 +234,23 @@ function showRepoList(repolist) {
       modalbody.insertAdjacentHTML('beforeend', htmlData);
     });
   });
+}
+
+function searchRepo(){
+  var input, filter, a, i;
+  input = document.getElementById('reponameInp');
+  filter = input.value.toUpperCase();
+  
+  list = document.getElementsByClassName("listofrepo");
+  for (i = 0; i < list.length; i++) {
+    a = list[i].textContent;
+    // console.log(a);
+    if (a.toUpperCase().indexOf(filter) > -1) {
+      list[i].style.display = "";
+    } else {
+      list[i].style.display = "none";
+    }
+  }
 }
 
 // ? Get Follower
