@@ -17,7 +17,7 @@
 <body>
 
     <!-- # Section 1  // Search and Dark mode -->
-    <div class="container rounded border border-dark border-3 overflow-hidden ">
+    <div class="container rounded border border-dark border-3 ">
         <div class="row  mt-2 mx-auto" id="mainpart">
             <div class="col-12 mx-auto border border-dark border-3 shadow rounded  ">
 
@@ -42,6 +42,41 @@
             </div>
         </div>
         <!-- ?Seection 1 Header Ends -->
+        <!--  ? Model of followers start-->
+        <div class="modal fade" id="followermodel" tabindex="-1" aria-labelledby="followermodel" aria-hidden="true" data-bs-dismiss="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Followers List</h5>
+                        <button type="button" class="btn-close modalclose shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ?Model of followers end   -->
+        <!-- ?Following  Model start-->
+        <div class="modal fade" id="followingmodel" tabindex="-1" aria-labelledby="followingmodel" aria-hidden="true" data-bs-dismiss="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Followers List</h5>
+                        <button type="button" class="btn-close modalclose shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ?Following model end -->
         <!-- ?User Details Start -->
         <div class="row mt-2 mx-auto mb-3 ">
             <div class="col mx-auto border border-dark border-3 shadow rounded d-flex justify-content-between userdatahtml">
@@ -52,7 +87,7 @@
                     <li>It is open source. Please check it out
                         <a href="https://github.com/Veeresh-Rex/Github-api.git" target="_blank">Github Link</a>
                     </li>
-                    <li>Created by <a href="https://github.com/Veeresh-Rex">@Veeresh Rex</a> and Sonali kushawah
+                    <li>Created by <a href="https://github.com/Veeresh-Rex">@Veeresh Rex</a> and Sonali kushwaha
                     </li>
                 </ul>
 
@@ -60,10 +95,29 @@
 
         </div>
         <!-- ?User Details End -->
-        <!-- ?Public Repo : start-->
-        <div class="row mt-2 shadow mx-auto mb-2" id='listrepo'>
+
+
+        <!-- ?list of gists start-->
+        <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listgist'>
             <div class="col border border-dark border-3 shadow rounded d-flex flex-column ">
                 <div class="repo fs-3 fw-bold d-flex justify-content-center" id="pubrepo">
+                    <p> List of Gists</p>
+                </div>
+                <div class=" d-flex flex-column">
+                    <div class="col-4 w-50  ms-5 mb-3 ">
+                        <input type="text" class="form-control inputSearch shadow-none " id="usernameInp" placeholder="Search Gist" aria-label="First name">
+                    </div>
+                    <div class="listgistdata">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ?list of gist end -->
+        <!-- ?Public Repo : start-->
+        <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listrepo'>
+            <div class="col border border-dark border-3 shadow rounded d-flex flex-column " id="repolistbody">
+                <div class="repo fs-3 fw-bold d-flex justify-content-center" id="publicrepo">
                     <p> List of Repository</p>
                 </div>
                 <div class=" d-flex flex-column">
@@ -73,71 +127,45 @@
                     <div class="listrepository">
 
                     </div>
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadowCss p-3 mb-3 bg-white rounded listofrepo card-list hvr-grow">1. This is a public repo
-                    </div>
+
                 </div>
 
             </div>
-            <!-- ? Model of repository -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Repository Name</h5>
-                            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Dummy Data
-                            <p>Id:2789876</p>
-                            <p>Owner : Veeresh_rex</p>
-                            <p>
-                                URL:Kya kroge Jankar
-                            </p>
-                            <p>HomePage: Not availabe</p>
-                            <p>Description: Oh pata nahi ji kaun sa nasha karta hai (nasha karta hai) Yaar mera har ek se wafa karta hai (wafa karta hai)</p>
-                            <p>Forked Repo: True/ false</p>
-                            <p>Fork count :2</p>
-                            <p>Fork : Show a list of fork User</p>
-                            <p>Created on:</p>
-                            <p>Updated at:</p>
-                            <p>Languages:
-                            </p>
-                            <p>Size:6588 kb</p>
-                            <p>Open issue count:</p>
-                            <p>Stars:87</p>
-                            <p>License: MIT</p>
-                            <p>List of Branches:</p>
-                            <p>Contributer list</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ?Model of repository end -->
-            <!--  ? Model of followers start-->
-            <div class="modal fade" id="followermodel" tabindex="-1" aria-labelledby="followermodel" aria-hidden="true" data-bs-dismiss="modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Followers List</h5>
-                            <button type="button" class="btn-close modalclose" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ?Model of followers end   -->
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+        <!-- ? Public repo end -->
+        <!-- ? Model of repository -->
+        <div class="modal fade" id="repomodal" tabindex="-1" aria-labelledby="repomodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="repomodalLabel"></h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ?Model of repository end -->
+
+
+
+
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
