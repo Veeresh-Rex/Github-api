@@ -16,153 +16,162 @@
 
 <body>
 
-    <!-- # Section 1  // Search and Dark mode -->
-    <div class="container rounded border border-dark border-3 ">
-        <div class="row  mt-2 mx-auto" id="mainpart">
-            <div class="col-12 mx-auto border border-dark border-3 shadow rounded  ">
+    <div class="site_header ">
 
-                <div class="row ">
-                    <div class="col-10 d-flex flex-column  justify-content-around font-weight-bold mt-2">
-                        <h2>
-                            <p class="ms-5"> Find details of a Github user</p>
-                        </h2>
-                        <form id='theform'>
-                            <div class="col-4 w-75  mb-3 d-flex justify-content-center">
-                                <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
-                                <button type="submit" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark shadow-none">Search</button>
-                            </div>
+        <!--  ?Section 1  // Search and Dark mode -->
+        <div class="container rounded">
+            <div class="row   mx-auto" id="mainpart">
+                <div class="col-12 mt-5 mx-auto  rounded  ">
+                    <div class="row ">
+                        <div class="col-10 d-flex flex-column  justify-content-around font-weight-bold mt-2">
+                            <h2>
+                                <p class="ms-5"> Find details of a Github user</p>
+                            </h2>
+                            <form id='theform'>
+                                <div class="col-4 w-75  mb-3 d-flex justify-content-center">
+                                    <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
+                                    <button type="submit" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark shadow-none">Search</button>
+                                </div>
 
-                        </form>
-                    </div>
-                    <div class="col-2 form-check form-switch mt-2">
-                        <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
+                            </form>
+                        </div>
+                        <div class="col-2 form-check form-switch mt-2">
+                            <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ?Seection 1 Header Ends -->
-        <!--  ? Model of followers start-->
-        <div class="modal fade" id="followermodel" tabindex="-1" aria-labelledby="followermodel" aria-hidden="true" data-bs-dismiss="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Followers List</h5>
-                        <button type="button" class="btn-close modalclose shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
+
+            <!-- ?Seection 1 Header Ends -->
+
+
+
+            <!--  ? Model of followers start-->
+            <div class="modal fade" id="followermodel" tabindex="-1" aria-labelledby="followermodel" aria-hidden="true" data-bs-dismiss="modal">
+                <div class="modal-dialog modal-lg shadow-lg">
+                    <div class="modal-content ">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title modal_header" id="exampleModalLabel">Followers List</h5>
+                            <button type="button" class="btn-close modalclose shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button " class="btn btn-outline-dark modalButton border-0 shadow-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ?Model of followers end   -->
-        <!-- ?Following  Model start-->
-        <div class="modal fade" id="followingmodel" tabindex="-1" aria-labelledby="followingmodel" aria-hidden="true" data-bs-dismiss="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Followers List</h5>
-                        <button type="button" class="btn-close modalclose shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ?Following model end -->
-        <!-- ?User Details Start -->
-        <div class="row mt-2 mx-auto mb-3 ">
-            <div class="col mx-auto border border-dark border-3 shadow rounded d-flex justify-content-between userdatahtml">
-                <ul class="datacard mt-2">
-                    <li>This is a simple website to get all details about any github user.</li>
-                    <li>This website simply use github api, to get all details about any user.</li>
-                    <li>The email-id of user is not provided by github api. So the email-id is shown in the data may or may not correct. </li>
-                    <li>It is open source. Please check it out
-                        <a href="https://github.com/Veeresh-Rex/Github-api.git" target="_blank">Github Link</a>
-                    </li>
-                    <li>Created by <a href="https://github.com/Veeresh-Rex">@Veeresh Rex</a> and Sonali kushwaha
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-        <!-- ?User Details End -->
-
-
-        <!-- ?list of gists start-->
-        <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listgist'>
-            <div class="col border border-dark border-3 shadow rounded d-flex flex-column ">
-                <div class="repo fs-3 fw-bold d-flex justify-content-center" id="pubrepo">
-                    <p> List of Gists</p>
-                </div>
-                <div class=" d-flex flex-column">
-                    <div class="col-4 w-50  ms-5 mb-3 ">
-                        <input type="text" class="form-control inputSearch shadow-none " id="usernameInp" placeholder="Search Gist" aria-label="First name">
-                    </div>
-                    <div class="listgistdata">
-
+            <!-- ?Model of followers end   -->
+            <!-- ?Following  Model start-->
+            <div class="modal fade" id="followingmodel" tabindex="-1" aria-labelledby="followingmodel" aria-hidden="true" data-bs-dismiss="modal">
+                <div class="modal-dialog modal-lg shadow-lg">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title modal_header" id="exampleModalLabel">Followers List</h5>
+                            <button type="button" class="btn-close modalclose shadow-none closeIcon" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button " class="btn btn-outline-dark modalButton border-0 shadow-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ?list of gist end -->
-        <!-- ?Public Repo : start-->
-        <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listrepo'>
-            <div class="col border border-dark border-3 shadow rounded d-flex flex-column " id="repolistbody">
-                <div class="repo fs-3 fw-bold d-flex justify-content-center" id="publicrepo">
-                    <p> List of Repository</p>
-                </div>
-                <div class=" d-flex flex-column">
-                    <div class="col-4 w-50  ms-5 mb-3 ">
-                        <input type="text" class="form-control inputSearch shadow-none " id="reponameInp" onkeyup="searchRepo()" placeholder="Search Repository" aria-label="First name">
-                    </div>
-                    <div class="listrepository">
 
-                    </div>
+            <!-- ?Following model end -->
+            <!-- ?User Details Start -->
+            <div class="row mt-5 mx-auto rounded-3 bg-white mb-3 ">
+                <div class="col mx-auto  shadow d-flex rounded-3 justify-content-between userdatahtml">
+                    <ul class="datacard mt-2">
+                        <li><i class="fas fa-chevron-circle-right"></i> This is a simple website to get all details about any github user.</li>
+                        <li><i class="fas fa-chevron-circle-right"></i> This website simply use github api, to get all details about any user.</li>
+                        <li><i class="fas fa-chevron-circle-right"></i> The email-id of user is not provided by github api. So the email-id is shown in the data may or may not correct. </li>
+                        <li><i class="fas fa-chevron-circle-right"></i> It is open source project. Please check it out
+                            <a href="https://github.com/Veeresh-Rex/Github-api.git" target="_blank" style="text-decoration: none;">Github Link</a>
+                        </li>
+                        <li><i class="fas fa-chevron-circle-right"></i> If there is some missing data then it may possible that data is not provided by User
+                        </li>
+                        <li><i class="fas fa-chevron-circle-right"></i> Created by <a href="https://github.com/Veeresh-Rex" target="_blank" style="text-decoration: none;">@Veeresh
+                                    Rex</a> and Sonali kushwaha
+                        </li>
+                    </ul>
 
                 </div>
 
             </div>
-        </div>
+            <!-- ?User Details End -->
 
-        <!-- ? Public repo end -->
-        <!-- ? Model of repository -->
-        <div class="modal fade" id="repomodal" tabindex="-1" aria-labelledby="repomodalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="repomodalLabel"></h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            <!-- ?list of gists start-->
+            <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listgist'>
+                <div class="col border shadow rounded d-flex flex-column ">
+                    <div class="repo fs-3 fw-bold d-flex justify-content-center" id="pubrepo">
+                        <p> List of Gists</p>
                     </div>
-                    <div class="modal-body">
+                    <div class=" d-flex flex-column">
+                        <div class="col-4 w-50  ms-5 mb-3 ">
+                            <input type="text" class="form-control inputSearch shadow-none " id="usernameInp" placeholder="Search Gist" aria-label="First name">
+                        </div>
+                        <div class="listgistdata">
 
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
-
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            <!-- ?list of gist end -->
+            <!-- ?Public Repo : start-->
+            <div class="row mt-2 shadow mx-auto mb-2 collapse multi-collapse" id='listrepo'>
+                <div class="col  shadow rounded d-flex flex-column " id="repolistbody">
+                    <div class="repo fs-3 fw-bold d-flex justify-content-center" id="publicrepo">
+                        <p> List of Repository</p>
+                    </div>
+                    <div class=" d-flex flex-column">
+                        <div class="col-4 w-50  ms-5 mb-3 ">
+                            <input type="text" class="form-control inputSearch shadow-none " id="reponameInp" onkeyup="searchRepo()" placeholder="Search Repository" aria-label="First name">
+                        </div>
+                        <div class="listrepository">
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ? Public repo end -->
+            <!-- ? Model of repository -->
+            <div class="modal fade" id="repomodal" tabindex="-1" aria-labelledby="repomodalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="repomodalLabel"></h5>
+                            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button shadow-none" class="btn btn-outline-dark btnSearch border-3 border-dark" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ?Model of repository end -->
+
+
+
+
         </div>
-        <!-- ?Model of repository end -->
-
-
-
 
     </div>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="script.js"></script>
