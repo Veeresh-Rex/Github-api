@@ -88,8 +88,8 @@ var formsub = function () {
       });
       console.log(2);
 
-      let userDataHTMLV = `
-<div class="datacard card-list card  my-2 mx-1 mb-1 w-50 mb-3 shadow mb-5 bg-white rounded" style="max-width: 18rem;">
+    let userDataHTMLV = `
+<div class="datacard card-list card  my-2 mx-1 mb-1 w-50 mb-3 shadow p-3 mb-5 rounded" style="max-width: 18rem;">
     <div class="card-body text-success">
         <img src="${
           userData.avatar_url
@@ -100,19 +100,19 @@ var formsub = function () {
     }" target="_blank" class="btn btn-outline-primary shadow-none profilebut border-0 shadow-lg" >Check Github Profile </a></span></div>
 </div>
 
-<div class="datacard card-list details flex-fills mw-25 card  w-50 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded">
+<div class="datacard card-list details flex-fills mw-25 card  w-50 mb-3 my-2 mx-1 shadow p-3 mb-5 rounded" id="details">
     <h2 id="name">${userData.name}</h2>
     <p> &nbsp@${userData.login}</p>
 
 ${
   userData.blog === ''
-    ? `<p class="text-danger" ><i class="fas fa-link icon"></i> Not availabe</p>`
+    ? `<p class="text-danger" ><i class="fas fa-link icon"></i> Not available</p>`
     : ` <p> <a href="${userData.blog}" target="_blank" class="alink"><i class="fas fa-link icon"></i> ${userData.blog}</a></p>`
 }
 
    ${
      userData.location === null
-       ? ` <p class="text-danger"><i class="fas fa-map-marker-alt icon"></i>&nbsp Not availabe</p>`
+       ? ` <p class="text-danger"><i class="fas fa-map-marker-alt icon"></i>&nbsp Not available</p>`
        : ` <p><i class="fas fa-map-marker-alt icon"></i>&nbsp${userData.location}</p>`
    }
    ${
@@ -129,7 +129,7 @@ ${
 }
    
 </div>
-<div class="datacard card-list card  w-25 mb-3 my-2 mx-1 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;">
+<div class="datacard card-list card  w-25 mb-3 my-2 mx-1 shadow p-3 mb-5 rounded" style="max-width: 18rem;">
     <div class="card-body">
         <p class="pubrepo" data-bs-toggle="collapse" data-bs-target="#listrepo" aria-expanded="false"  role="button" aria-controls="listrepo" style="cursor: pointer;">Public repo:${
           userData.public_repos
@@ -187,8 +187,8 @@ function showRepoList(repolist) {
   });
   let i = userData.public_repos > 100 ? 100 : userData.public_repos;
   for (var rep in repolist) {
-    console.log(rep);
-    htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#repomodal" value="${rep}" class="shadowCss p-3 mb-3 hvr-float bg-white rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
+    // console.log(rep);
+    htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#repomodal" value="${rep}" class="shadowCss p-3 mb-3 hvr-float rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
     listreposi.insertAdjacentHTML('afterbegin', htmlTaglist);
     i--;
   }
@@ -206,12 +206,12 @@ function showRepoList(repolist) {
       <p>URL:${currentrepo.html_url} </p>
      ${
        currentrepo.homepage === null || currentrepo.homepage === ''
-         ? `<p class="text-danger">Homepage: Not availabe</p>`
+         ? `<p class="text-danger">Homepage: Not available</p>`
          : `<p>HomePage: ${currentrepo.homepage}</p>`
      }
     ${
       currentrepo.description === null
-        ? `<p class="text-danger">Description: Not availabe</p>`
+        ? `<p class="text-danger">Description: Not available</p>`
         : `<p>Description: ${currentrepo.description}</p>`
     }
       <p>Forked Repo: ${currentrepo.fork}</p>
@@ -226,7 +226,7 @@ function showRepoList(repolist) {
       <p>Stars:${currentrepo.stargazers_count}</p>
        ${
          currentrepo.license === null
-           ? `<p class="text-danger">License: Not availabe</p>`
+           ? `<p class="text-danger">License: Not available</p>`
            : `<p>License: ${currentrepo.license.key}</p>`
        }
       <p>List of Branches:</p>
@@ -260,7 +260,7 @@ getFollowerlist.addEventListener('show.bs.modal', function (event) {
 
       response.forEach((ele) => {
         //console.log(ele);
-        let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 bg-white rounded followerlist card-list hvr-float">${ele.login} </div>`;
+        let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 rounded followerlist card-list hvr-float">${ele.login} </div>`;
         modalBody.insertAdjacentHTML('afterbegin', htmlData);
       });
       modalBody.querySelectorAll('.followerlist').forEach((list) => {
@@ -300,7 +300,7 @@ getFollowing.addEventListener('show.bs.modal', () => {
 
       response.forEach((ele) => {
         console.log(ele);
-        let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 bg-white rounded followinglist card-list hvr-float">${ele.login} </div>`;
+        let htmlData = `<div style="cursor: pointer;"  class="shadowCss p-3 mb-3 rounded followinglist card-list hvr-float">${ele.login} </div>`;
         modalBody.insertAdjacentHTML('afterbegin', htmlData);
       });
       modalBody.querySelectorAll('.followinglist').forEach((list) => {
@@ -363,3 +363,67 @@ function searchRepo() {
     }
   }
 }
+
+// Dark mode library code
+// const options = {
+//   bottom: '64px', // default: '32px'
+//   right: 'unset', // default: '32px'
+//   left: '32px', // default: 'unset'
+//   time: '0.6s', // default: '0.3s'
+//   mixColor: '#fff', // default: '#fff'
+//   backgroundColor: '#fff',  // default: '#fff'
+//   buttonColorDark: '#100f2c',  // default: '#100f2c'
+//   buttonColorLight: '#fff', // default: '#fff'
+//   saveInCookies: false, // default: true,
+//   label: '🌓', // default: ''
+//   autoMatchOsTheme: true // default: true
+// }
+
+// const darkmode = new Darkmode(options);
+// darkmode.showWidget();
+// Dark mode library code end
+
+// original Dark mode code 😝
+var darkToggle = document.getElementById("flexSwitchCheckChecked");
+darkToggle.addEventListener('change', (colors)=>{
+  // console.log("theme changed");
+  document.body.classList.toggle('dark2');
+  document.getElementById("details").classList.toggle('dark2');
+
+  const cards = document.getElementsByClassName("card-body");
+  for(var i=0;i<cards.length;i++){
+    cards[i].classList.toggle('dark2');
+  }
+
+  const repo = document.getElementsByClassName("listofrepo");
+  for(var i=0;i<repo.length;i++){
+    console.log(repo[i]);
+    repo[i].classList.toggle('dark2');
+  }
+
+  const container = document.getElementsByClassName("row");
+  for(var i=0;i<container.length;i++){
+    container[i].classList.toggle('dark1');
+  }
+
+  const follower = document.getElementsByClassName("followerlist");
+  for(var i=0;i<follower.length;i++){
+    follower[i].classList.toggle('dark2');
+  }
+  const following = document.getElementsByClassName("followinglist");
+  for(var i=0;i<following.length;i++){
+    following[i].classList.toggle('dark2');
+  }
+  const userdata = document.getElementsByClassName("userdatahtml");
+  for(var i=0;i<userdata.length;i++){
+    userdata[i].classList.toggle('dark1');
+  }
+
+  const datacard = document.getElementsByClassName("datacard");
+  for(var i=0;i<datacard.length;i++){
+    datacard[i].classList.toggle('dark1');
+  }
+
+  document.getElementsByClassName("modal-body").classList.toggle("dark2");
+  document.getElementsByTagName("button")[0].classList.toggle("dark_btn");
+});
