@@ -5,7 +5,7 @@ const form = document.querySelector('form');
 const listreposi = document.querySelector('.listrepository');
 var getFollowerlist = document.getElementById('followermodel');
 const listgist = document.getElementById('listgist');
-
+var inputfilterrepo = document.getElementById('reponameInp');
 var allowsearch = false;
 
 input.onchange = function () {
@@ -160,6 +160,7 @@ ${
     });
 
   input.value = '';
+  inputfilterrepo.value = '';
 };
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -345,3 +346,20 @@ listgist.addEventListener('show.bs.collapse', () => {
       console.log('Error while fetching following list: ' + err);
     });
 });
+
+function searchRepo() {
+  var filter, a, i;
+
+  filter = inputfilterrepo.value.toUpperCase();
+
+  list = document.getElementsByClassName('listofrepo');
+  for (i = 0; i < list.length; i++) {
+    a = list[i].textContent;
+    // console.log(a);
+    if (a.toUpperCase().indexOf(filter) > -1) {
+      list[i].style.display = '';
+    } else {
+      list[i].style.display = 'none';
+    }
+  }
+}
