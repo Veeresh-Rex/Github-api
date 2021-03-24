@@ -11,6 +11,36 @@ body {
     /* background-color: #7918f4; */
 }
 
+.dark1 {
+    background-color: rgb(43, 39, 39);
+    color: rgb(255, 255, 255);
+}
+
+.dark2{
+    background-color: rgb(20, 20, 20);
+    color: rgb(253, 252, 251);
+}
+
+.dark2 .alink{
+    background-color: rgb(20, 20, 20);
+    color: rgb(253, 252, 251);
+}
+
+.dark_btn{
+    background-color: rgb(126, 124, 124);
+
+}
+
+.sun {
+    margin-right: 2.5rem;
+    z-index: 5;
+}
+
+.sun, .moon{
+    font-size: small;
+    margin-top: 0.2rem;
+}
+
 .btnSearch {
     border-radius: 60px;
     outline: none;
