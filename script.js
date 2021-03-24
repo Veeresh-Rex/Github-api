@@ -93,7 +93,7 @@ var formsub = function () {
     <div class="card-body text-success">
         <img src="${
           userData.avatar_url
-        }" style="width: 250px;height: 250px;" alt="userimg" class="rounded shadow">
+        }" style="width: 250px;height: 250px;" alt="userimg" class="rounded">
     </div>
     <div class="card-footer bg-transparent border-secondary border-0  d-flex justify-content-center align-content-center"><span class=" d-flex  align-content-start"><a href="${
       userData.html_url
@@ -164,9 +164,9 @@ ${
 };
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-
   console.log(input.value);
-  if (input.value !== undefined && allowsearch == true) formsub();
+  if (input.value !== undefined && allowsearch == true && input.value !== '')
+    formsub();
 });
 const repomodal = document.getElementById('repomodal');
 repomodal.addEventListener('show.bs.modal', () => {
