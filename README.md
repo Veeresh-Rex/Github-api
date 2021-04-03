@@ -31,3 +31,4 @@ Feel free to create issues.
 8. Push your changes to your fork `git push origin BRANCH_NAME`
 9. click the green Create pull request button!
 
+[![DeepScan grade](https://deepscan.io/api/teams/11650/projects/16514/branches/357332/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11650&pid=16514&bid=357332)
