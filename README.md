@@ -1,6 +1,9 @@
 # Github-api
   Search and view users via the Github API Project - https://veeresh-rex.github.io/Github-api/
   
+
+[![DeepScan grade](https://deepscan.io/api/teams/11650/projects/16514/branches/357332/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11650&pid=16514&bid=357332)
+  
   
 ## What is this?
 A Github Api project built with HTML, CSS3 and JS which uses Github api to search Github users, view their repositories, followers, following, their profiles and all other details.
@@ -30,5 +33,3 @@ Feel free to create issues.
 7. Make changes in your local repository
 8. Push your changes to your fork `git push origin BRANCH_NAME`
 9. click the green Create pull request button!
-
-[![DeepScan grade](https://deepscan.io/api/teams/11650/projects/16514/branches/357332/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11650&pid=16514&bid=357332)
