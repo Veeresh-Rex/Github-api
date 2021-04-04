@@ -79,7 +79,7 @@ var formsub = function () {
       fetch(`https://api.github.com/users/${inputValueis}/repos?per_page=100`)
         .then((respo) => respo.json())
         .then(async (userPublicrepo) => {
-          await showRepoList(userPublicrepo);
+           showRepoList(userPublicrepo);
         });
       var getStarProject;
       await getStatProjects().then((userstar) => {
@@ -188,7 +188,7 @@ function showRepoList(repolist) {
   let i = userData.public_repos > 100 ? 100 : userData.public_repos;
   for (var rep in repolist) {
     console.log(rep);
-    htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#repomodal" value="${rep}" class="shadowCss p-3 mb-3 hvr-float rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
+    let htmlTaglist = `<div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#repomodal" value="${rep}" class="shadowCss p-3 mb-3 hvr-float rounded listofrepo card-list">${i}. ${repolist[rep].name}</div>`;
     listreposi.insertAdjacentHTML('afterbegin', htmlTaglist);
     i--;
   }
