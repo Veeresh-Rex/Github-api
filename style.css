@@ -11,6 +11,11 @@
     --white: #D6D1F5;
     --purple: #B05CBA;
     --redli: #F95335;
+    --darkBlack: #181717;
+    --lightblack: #313030;
+    --black: #1b1a1b;
+    --whiteOnDark: #ececec;
+    --greyish: #202020;
 }
 
 * {
@@ -40,7 +45,7 @@ i {
 
 body {
     font-family: 'Inconsolata', monospace;
-    background-color: white;
+    background-color: var(--whiteOnDark);
 }
 
 .profilebut {
@@ -51,6 +56,48 @@ body {
 .profilebut:hover {
     background-color: var(--blue);
 }
+
+.row {
+    background-color: var(--whiteOnDark);
+}
+
+.dark{
+    background-color: var(--lightblack);
+}
+ 
+.dark1 {
+    background-color: var(--darkBlack);
+    color: var(--whiteOnDark);
+}
+
+.dark2{
+    background-color: var(--black);
+    color: var(--whiteOnDark);
+}
+
+.dark3 {
+    background-color: var(--greyish);
+}
+
+.alink{
+    /* background-color: var(--darkBlack); */
+    color: var(--whiteOnDark);
+}
+
+.dark_btn{
+    background-color: rgb(126, 124, 124);
+}
+
+.sun {
+    margin-right: 2.5rem;
+    z-index: 5;
+}
+
+.sun, .moon{
+    font-size: small;
+    margin-top: 0.2rem;
+}
+
 
 .btnSearch {
     border-radius: 60px;
