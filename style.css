@@ -61,16 +61,16 @@ body {
     background-color: var(--whiteOnDark);
 }
 
-.dark {
+.dark{
     background-color: var(--lightblack);
 }
-
+ 
 .dark1 {
     background-color: var(--darkBlack);
     color: var(--whiteOnDark);
 }
 
-.dark2 {
+.dark2{
     background-color: var(--black);
     color: var(--whiteOnDark);
 }
@@ -79,12 +79,12 @@ body {
     background-color: var(--greyish);
 }
 
-.alink {
+.alink{
     /* background-color: var(--darkBlack); */
     color: var(--whiteOnDark);
 }
 
-.dark_btn {
+.dark_btn{
     background-color: rgb(126, 124, 124);
 }
 
@@ -93,11 +93,11 @@ body {
     z-index: 5;
 }
 
-.sun,
-.moon {
+.sun, .moon{
     font-size: small;
     margin-top: 0.2rem;
 }
+
 
 .btnSearch {
     border-radius: 60px;
