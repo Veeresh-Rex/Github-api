@@ -8,87 +8,87 @@ const listgist = document.getElementById('listgist');
 var inputfilterrepo = document.getElementById('reponameInp');
 var allowsearch = false;
 
-input.onchange = function () {
-  allowsearch = true;
+input.onchange = function() {
+    allowsearch = true;
 };
 async function getEmail(data) {
-  // * fetch event public >>get all array>>payload>>commits>>all commit traverse>>author>>email and name verify
-  let url = `https://api.github.com/users/${data.login}/events/public?per_page=100`;
-  return await fetch(url)
-    .then((res) => res.json())
-    .then((eventData) => {
-      for (let i in eventData) {
-        let x = eventData[i].payload.commits;
-        //  console.log(x);
-        if (x !== undefined) {
-          let Validemail = x.filter((e) => {
-            return (
-              e.author.name == data.name &&
-              !e.author.email.includes('.noreply.github.com')
-            );
-          });
-          if (Validemail[0] !== undefined) {
-            return Validemail[0].author.email;
-          }
-        }
-      }
-    })
-    .catch((err) => {
-      console.log('Error: ' + err);
-    });
+    // * fetch event public >>get all array>>payload>>commits>>all commit traverse>>author>>email and name verify
+    let url = `https://api.github.com/users/${data.login}/events/public?per_page=100`;
+    return await fetch(url)
+        .then((res) => res.json())
+        .then((eventData) => {
+            for (let i in eventData) {
+                let x = eventData[i].payload.commits;
+                //  console.log(x);
+                if (x !== undefined) {
+                    let Validemail = x.filter((e) => {
+                        return (
+                            e.author.name == data.name &&
+                            !e.author.email.includes('.noreply.github.com')
+                        );
+                    });
+                    if (Validemail[0] !== undefined) {
+                        return Validemail[0].author.email;
+                    }
+                }
+            }
+        })
+        .catch((err) => {
+            console.log('Error: ' + err);
+        });
 }
 var userData;
 var inputValueis;
 
 async function getStatProjects() {
-  var stardatano;
-  let res = await fetch(
-    `https://api.github.com/users/${inputValueis}/starred?per_page=100`
-  );
-  let response = await res.json();
-  stardatano = response.length;
-  console.log(typeof stardatano);
-  return stardatano;
+    var stardatano;
+    let res = await fetch(
+        `https://api.github.com/users/${inputValueis}/starred?per_page=100`
+    );
+    let response = await res.json();
+    stardatano = response.length;
+    console.log(typeof stardatano);
+    return stardatano;
 }
-var formsub = function () {
-  listgist.classList.remove('show');
-  listreposi.classList.remove('show');
-  let loader = `  <div class="spinner w-100 h-100 mt-5 mb-5 d-flex justify-content-center ">
+var formsub = function() {
+        listgist.classList.remove('show');
+        listreposi.classList.remove('show');
+        let loader = `  <div class="spinner w-100 h-100 mt-5 mb-5 d-flex justify-content-center ">
 <span class="loader"></span>
 </div>`;
-  inputValueis = input.value;
-  let url = `https://api.github.com/users/${inputValueis}`;
+        inputValueis = input.value;
+        let url = `https://api.github.com/users/${inputValueis}`;
 
-  userdatahtml.querySelectorAll('.datacard').forEach((ele) => {
-    ele.remove();
-  });
-  userdatahtml.insertAdjacentHTML('beforeend', loader);
-  fetch(url)
-    .then((res) => {
-      return res.json();
-    })
-    .then(async (data) => {
-      userData = data;
-      var useremail;
-      await getEmail(userData).then((ress) => {
-        useremail = ress;
-      });
-      let joinDate = userData.created_at.substring(0, 10);
-
-      //  console.log('value: ' + inputValueis);
-      fetch(`https://api.github.com/users/${inputValueis}/repos?per_page=100`)
-        .then((respo) => respo.json())
-        .then(async (userPublicrepo) => {
-          await showRepoList(userPublicrepo);
+        userdatahtml.querySelectorAll('.datacard').forEach((ele) => {
+            ele.remove();
         });
-      var getStarProject;
-      await getStatProjects().then((userstar) => {
-        console.log(1);
-        getStarProject = userstar;
-      });
-      console.log(2);
+        userdatahtml.insertAdjacentHTML('beforeend', loader);
+        fetch(url)
+            .then((res) => {
+                return res.json();
+            })
+            .then(async(data) => {
+                    userData = data;
+                    var useremail;
+                    await getEmail(userData).then((ress) => {
+                        useremail = ress;
+                    });
+                    let joinDate = userData.created_at.substring(0, 10);
 
-      let userDataHTMLV = `
+                    //  console.log('value: ' + inputValueis);
+                    fetch(`https://api.github.com/users/${inputValueis}/repos?per_page=100`)
+                        .then((respo) => respo.json())
+                        .then(async(userPublicrepo) => {
+                            await showRepoList(userPublicrepo);
+                        });
+                    var getStarProject;
+                    await getStatProjects().then((userstar) => {
+                        console.log(1);
+                        getStarProject = userstar;
+                    });
+                    console.log(2);
+
+                    let userDataHTMLV = `
 <div class="datacard card-list card  my-2 mx-1 mb-1 w-50 mb-3 shadow mb-5 bg-white rounded" style="max-width: 18rem;">
     <div class="card-body text-success">
         <img src="${
@@ -120,8 +120,14 @@ ${
        ? ` <p class="text-danger"> <i class="far fa-envelope icon"></i> Not avaliable</p>`
        : ` <p> <a href="mailto:${useremail}" class="alink"><i class="far fa-envelope icon"></i> ${useremail}</a></p>`
    }
+
+  ${
+    userData.twitter_username === null
+      ? ` <p class="text-danger"> <i class="fab fa-twitter icon"></i> Not avaliable</p>`
+      : `    <p><i class="fab fa-twitter icon"></i> @${userData.twitter_username} </p>`
+  }
   
-    <p><i class="fab fa-twitter icon"></i> @${userData.twitter_username}</p>
+   
 ${
   userData.bio == null
     ? ` <p class="text-danger"><i class="fas fa-address-card icon"></i> Not avaliable</p>`
@@ -206,12 +212,12 @@ function showRepoList(repolist) {
       <p>URL:${currentrepo.html_url} </p>
      ${
        currentrepo.homepage === null || currentrepo.homepage === ''
-         ? `<p class="text-danger">Homepage: Not availabe</p>`
+         ? `<p class="text-danger">Homepage: Not available</p>`
          : `<p>HomePage: ${currentrepo.homepage}</p>`
      }
     ${
       currentrepo.description === null
-        ? `<p class="text-danger">Description: Not availabe</p>`
+        ? `<p class="text-danger">Description: Not available</p>`
         : `<p>Description: ${currentrepo.description}</p>`
     }
       <p>Forked Repo: ${currentrepo.fork}</p>
@@ -226,7 +232,7 @@ function showRepoList(repolist) {
       <p>Stars:${currentrepo.stargazers_count}</p>
        ${
          currentrepo.license === null
-           ? `<p class="text-danger">License: Not availabe</p>`
+           ? `<p class="text-danger">License: Not available</p>`
            : `<p>License: ${currentrepo.license.key}</p>`
        }
       <p>List of Branches:</p>
