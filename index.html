@@ -18,37 +18,30 @@
 
     <div class="site_header ">
 
+        <!--  ?Section 1  // Search and Dark mode -->
+        <div class="container rounded">
+            <div class="row   mx-auto" id="mainpart">
+                <div class="col-12 mt-5 mx-auto  rounded  ">
+                    <div class="row ">
+                        <div class="col-10 d-flex flex-column  justify-content-around font-weight-bold mt-2">
+                            <h2>
+                                <p class="ms-5"> Find details of a Github user</p>
+                            </h2>
+                            <form id='theform'>
+                                <div class="col-4 w-75  mb-3 d-flex justify-content-center">
+                                    <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
+                                    <button type="submit" id="searchBtn" class="btn btn-outline-dark btnSearch border-3 border-dark shadow-none">Search</button>
+                                </div>
 
-    <!-- # Section 1  // Search and Dark mode -->
-    <div class="container rounded border border-dark border-3 ">
-        <div class="row  mt-2 mx-auto" id="mainpart">
-            <div class="col-12 mx-auto border border-dark border-3 shadow rounded  ">
-
-                <div class="row ">
-                    <div class="col-10 d-flex flex-column  justify-content-around font-weight-bold mt-2">
-                        <h2>
-                            <p class="ms-5"> Find details of a Github user</p>
-                        </h2>
-                        <form id='theform'>
-                            <div class="col-4 w-75  mb-3 d-flex justify-content-center">
-                                <input type="search" class="form-control inputSearch shadow-none mx-5" id="usernameInp" placeholder="Enter Username" aria-label="First name">
-                                <button type="submit" id="searchBtn" class="btn btn-outline-dark btnSearch txt-dark border-3 border-dark shadow-none">Search</button>
-                            </div>
-
-                        </form>
-                    </div>
-                    <div class="col-2 form-check form-switch mt-2 d-flex">
-                        <div class="sun">
-                            <i class="fas fa-sun"></i>
+                            </form>
                         </div>
-                        <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked">
-                        <div class="moon">
-                            <i class="fas fa-moon"></i>
+                        <div class="col-2 form-check form-switch mt-2">
+                            <input class="form-check-input border border-dark" type="checkbox" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <!-- ?Seection 1 Header Ends -->
 
@@ -90,7 +83,7 @@
 
             <!-- ?Following model end -->
             <!-- ?User Details Start -->
-            <div class="row mt-5 mx-auto rounded-3 mb-3 ">
+            <div class="row mt-5 mx-auto rounded-3 bg-white mb-3 ">
                 <div class="col mx-auto  shadow d-flex rounded-3 justify-content-between userdatahtml">
                     <ul class="datacard mt-2">
                         <li><i class="fas fa-chevron-circle-right"></i> This is a simple website to get all details about any github user.</li>
@@ -180,7 +173,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script src="script.js"></script>
 </body>
 
